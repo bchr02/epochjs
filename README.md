@@ -1,6 +1,10 @@
 # epochjs version 1.0.0
 Track the elapsed time since a certain point, like the start of a node script.
 
+## Installation:
+Run `npm install epochjs` to install from the NPM registry.
+
+
 ## Examples:
 ````javascript
 var epoch = require('epochjs');
