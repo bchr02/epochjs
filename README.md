@@ -2,7 +2,7 @@
 Track the elapsed time since a certain point, like the start of a node script.
 
 ## Examples:
-````
+````javascript
 var epoch = require('epochjs');
 
 // Call start() to set a start time
