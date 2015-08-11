@@ -15,6 +15,6 @@ console.log(epoch.secElapsed() + ' time has ellapsed');
 
 // or even simpler call log()
 // the following will output to the console "5.11 database updated" where 5.11 is the amount of time that has ellapsed.
-epoch.log('database updated')
+epoch.log('database updated');
 
 ````
