@@ -1,6 +1,8 @@
 # epochjs version 1.0.2
 Track the elapsed time since a certain point, like the start of a node script.
 
+[![NPM](https://nodei.co/npm/epochjs.png?downloads=true&stars=true)](https://nodei.co/npm/epochjs/)
+
 ## Installation:
 Run `npm install epochjs` to install from the NPM registry.
 
