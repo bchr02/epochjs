@@ -26,6 +26,8 @@ var epoch = (function() {
 		console.log(epoch.secElapsed() + ' ' + msg);	
 	}
 	
+	start();
+	
 	return {
 		start: start,
 		secElapsed: secElapsed,

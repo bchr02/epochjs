@@ -1,4 +1,4 @@
-# epochjs version 1.0.2
+# epochjs version 1.0.3
 Track the elapsed time since a certain point, like the start of a node script.
 
 [![NPM](https://nodei.co/npm/epochjs.png?downloads=true&stars=true)](https://nodei.co/npm/epochjs/)
@@ -11,7 +11,8 @@ Run `npm install epochjs` to install from the NPM registry.
 ````javascript
 var epoch = require('epochjs');
 
-// Call start() to set (or reset) the start time
+// Call start() to set (or reset) the start time.
+// start() is called at the start of the script by default.
 epoch.start();
 
 // ...add your javascript code here
