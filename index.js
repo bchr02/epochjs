@@ -1,38 +1,28 @@
 "use strict";
 
-var epoch = (function() {
-	var d, s;
-	
-	function start() {
-		d = new Date(),
-		s = d.getTime() / 1000;
-	}
-	
-	function secElapsed() {
+function Epochjs() {
+	this.seconds; // the number of seconds between midnight of January 1, 1970 and this.start().
+	this.start();
+}
+
+Epochjs.prototype = {
+	start: function() {
+		var d = new Date();
+		this.seconds = d.getTime() / 1000;
+	},
+	secElapsed: function() {
 		var d = new Date(),
-			r = (d.getTime() / 1000) - s;
+			r = (d.getTime() / 1000) - this.seconds;
 		
-		if (typeof s === 'undefined') {
-			console.error('ERROR: start() must be called before secElapsed()');
-			return 0;
-		}
+		if (typeof this.seconds != 'number'){return;}
 		
 		r = Math.round(r * 100) / 100;
 		
 		return r;
-	}
-	
-	function log(msg){
-		console.log(epoch.secElapsed() + ' ' + msg);	
-	}
-	
-	start();
-	
-	return {
-		start: start,
-		secElapsed: secElapsed,
-		log: log
-	};
-})();
+	},
+	log: function(msg) {
+		console.log(secElapsed() + ' ' + msg);
+	}	
+}
 
-module.exports = epoch;
+module.exports = Epochjs;

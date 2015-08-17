@@ -4,7 +4,7 @@
   "description": "Track the elapsed time since a certain point, like the start of a node script.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/bchr02/epochjs/issues"
   },
-  "homepage": "https://github.com/bchr02/epochjs#readme"
+  "homepage": "https://github.com/bchr02/epochjs#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
 }
