@@ -1,35 +1,49 @@
 "use strict";
 
-var expect	= require("chai").expect;
+var should	= require("chai").should();
 var Epochjs	= require("../index");
 
-describe("Track the amount of time that has elapsed", function() {
-	describe("seconds", function() {
-		it("is a positive number", function() {
+describe("Epochjs", function() {
+	describe(".start()", function() {
+		it("should be called on init", function() {
 			var epochjs = new Epochjs();
-			epochjs.start();
-			expect(epochjs.seconds).to.be.above(0);
-		});
-		it("returns a number", function() {
-			var epochjs = new Epochjs();
-			epochjs.start();
-			expect(epochjs.seconds).to.be.a('number');
+			should.exist(epochjs.seconds);
 		});
 	});
-	describe("secElapsed()", function() {
-		it("returns a number", function() {
+	describe(".seconds", function() {
+		it("should be the number of seconds since midnight of January 1, 1970", function() {
+			var epochjs = new Epochjs(),
+				d = new Date(),
+				r = d.getTime() / 1000;
+			epochjs.start();
+			epochjs.seconds.should.be.within(r,r+10);
+		});
+	});
+	describe(".secElapsed()", function() {
+		it("should return a postive number indicating the number of seconds that have ellapsed since start() was last called.", function() {
 			var epochjs = new Epochjs();
 			epochjs.start();
-			expect(epochjs.secElapsed()).to.be.a('number');
+			epochjs.secElapsed().should.be.within(0,10);
 		});
-		it("is a positive number", function() {
-			var epochjs = new Epochjs();
+	});
+	describe(".log()", function() {
+		it("should log a message to the console", function() {
+			var oldconsole = console,
+				console = {
+					log: function(s) {
+						if (s == message) {
+							return true;
+						}
+					}},
+				message = 'test',
+				result = false,
+				epochjs = new Epochjs(),
+				check;
 			epochjs.start();
-			expect(epochjs.secElapsed()).to.be.at.least(0);
-		});
-		it("returns a number even when not explicitly calling start()", function() {
-			var epochjs = new Epochjs();
-			expect(epochjs.secElapsed()).to.be.a('number');
+			check = epochjs.log(message);
+			console = oldconsole;
+			should.exist(check);
+			check.should.be.true();
 		});
 	});
 });
