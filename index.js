@@ -1,7 +1,6 @@
 "use strict";
 
 function Epochjs() {
-	this.seconds; // the number of seconds between midnight of January 1, 1970 and this.start().
 	this.start();
 }
 
@@ -21,8 +20,10 @@ Epochjs.prototype = {
 		return r;
 	},
 	log: function(msg) {
-		console.log(secElapsed() + ' ' + msg);
+		msg = this.secElapsed() + ' ' + msg;
+		console.log(msg);
+		return msg;
 	}	
-}
+};
 
 module.exports = Epochjs;

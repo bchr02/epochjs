@@ -26,24 +26,15 @@ describe("Epochjs", function() {
 			epochjs.secElapsed().should.be.within(0,10);
 		});
 	});
-	describe(".log()", function() {
-		it("should log a message to the console", function() {
-			var oldconsole = console,
-				console = {
-					log: function(s) {
-						if (s == message) {
-							return true;
-						}
-					}},
-				message = 'test',
-				result = false,
-				epochjs = new Epochjs(),
-				check;
-			epochjs.start();
-			check = epochjs.log(message);
-			console = oldconsole;
-			should.exist(check);
-			check.should.be.true();
+	describe(".log('test')", function() {
+		it("should return a message", function() {
+			var epochjs = new Epochjs(),
+				msg		= 'test',
+				result	= epochjs.log(msg),
+				pass	= (result.indexOf(msg) > -1) ? true : false;
+			
+			should.exist(pass);
+			pass.should.equal(true);
 		});
 	});
 });
